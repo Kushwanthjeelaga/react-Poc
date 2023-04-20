@@ -64,7 +64,6 @@ const firebaseConfig = {
       await addDoc(collection(db, "users"), {
         uid: user.uid,
         name,
-        authProvider: "local",
         email,
       });
     } catch (err) {

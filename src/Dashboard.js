@@ -34,6 +34,7 @@ function Dashboard() {
             const doc = await getDocs(q);
             const data = doc.docs[0].data();
             setName(data.name);
+            console.log(user)
         } catch (err) {
             console.error(err);
             alert("An error occured while fetching user data");
@@ -60,38 +61,50 @@ function Dashboard() {
         //      </button>
         //    </div>
         //  </div>
-
-        <div className="container">
-
-            <form className="d-flex mt-4" onSubmit={handleSubmit(submit)}>
-                <input
-                    className="form-control me-2"
-                    type="text"
-                    placeholder="Seach"
-                    {...register("textSearch")}
-                />
-            </form>
-
-            {allBooks.length > 0 && (
-                <div className="d-flex mt-3">
-                    {allBooks.map(book => (
-                        <div key={book.book_name}><div className="card m-2">
-                            <img className="mx-auto" src={book.book_image} alt="" height="300" width="200"></img>
-                            <br />
-                            <p>{book.book_name}</p>
-
-
-                        </div>
-                        
-                        </div>
-
-
-                    ))}
-
-
+    
+        <div>
+            <nav className="navbar  bg-success" >
+                <div className="container-fluid " style={{ height: "50px", width: '100%', justifyContent: "flex-end" }}>
+                    <button className="dashboard__btn" onClick={logout}>Logout</button>
                 </div>
-            )}
+            </nav>
 
+
+            <div className="container" >
+
+                <form className="d-flex mt-4" onSubmit={handleSubmit(submit)}>
+                    <input
+                        className="form-control me-2"
+                        type="text"
+                        placeholder="Seach"
+                        {...register("textSearch")}
+                    />
+                    <button className="btn btn-primary" type="submit">
+                        Submit
+                    </button>
+                </form>
+
+                {allBooks.length > 0 && (
+                    <div className="books-collection mt-3">
+                        {allBooks.map(book => (
+                            <div key={book.book_name}><div className="card m-4">
+                                <img className="mx-auto" src={book.book_image} alt="" height="280" width="200"></img>
+                                <br />
+                                <p>{book.book_name}</p>
+
+
+                            </div>
+
+                            </div>
+
+
+                        ))}
+
+
+                    </div>
+                )}
+
+            </div>
         </div>
     );
 }

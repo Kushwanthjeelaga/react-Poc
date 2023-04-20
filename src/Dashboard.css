@@ -13,13 +13,20 @@
     padding: 30px;
   }
   .dashboard__btn {
-    padding: 10px;
-    font-size: 18px;
-    margin-top: 10px;
-    border: none;
-    color: white;
-    background-color: black;
+    width: 100px;
+    height: 40px;
+    color: yellow;
+    background: red;
+    border-radius: 20px;
   }
   .dashboard div {
     margin-top: 7px;
+  }
+
+  .books-collection {
+    display: flex!important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 90%;
   }
